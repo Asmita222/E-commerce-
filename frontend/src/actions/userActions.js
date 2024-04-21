@@ -43,7 +43,7 @@ export const login = (email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "/api/users/login/",
+      "http://54.160.196.198:8000/api/users/login/",
       { username: email, password: password },
       config
     );
@@ -86,7 +86,7 @@ export const register = (name, email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "/api/users/register/",
+      "http://54.160.196.198:8000/api/users/register/",
       //yo data backend-base-views-userviews ko register user ma gayo
       { name: name, email: email, password: password },
       config
@@ -129,7 +129,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.get(`/api/users/${id}/`, config); //backend-base-views-userviews ko getuseprofile ma janxa
+    const { data } = await axios.get(`http://54.160.196.198:8000/api/users/${id}/`, config); //backend-base-views-userviews ko getuseprofile ma janxa
     dispatch({
       type: USER_DETAILS_SUCCESS,
       payload: data,
@@ -162,7 +162,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.put(
-      `/api/users/profile/update/`,
+      `http://54.160.196.198:8000/api/users/profile/update/`,
       user,
       config
     ); //backend-base-views-userviews ko getuseprofile ma janxa
@@ -203,7 +203,7 @@ export const listUsers = () => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.get(`/api/users/`, config); //backend-base-views-userviews ko getuseprofile ma janxa
+    const { data } = await axios.get(`http://54.160.196.198:8000/api/users/`, config); //backend-base-views-userviews ko getuseprofile ma janxa
     dispatch({
       type: USER_LIST_SUCCESS,
       payload: data,
@@ -235,7 +235,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.delete(`/api/users/delete/${id}/`, config); //backend-base-views-userviews ko getuseprofile ma janxa
+    const { data } = await axios.delete(`http://54.160.196.198:8000/api/users/delete/${id}/`, config); //backend-base-views-userviews ko getuseprofile ma janxa
     dispatch({
       type: USER_DELETE_SUCCESS,
       payload: data,
@@ -268,7 +268,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.put(
-      `/api/users/update/${user._id}/`,
+      `http://54.160.196.198:8000/api/users/update/${user._id}/`,
       user,
       config
     ); //backend-base-views-userviews ko getuseprofile ma janxa
