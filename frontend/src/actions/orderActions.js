@@ -44,7 +44,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.post(`/api/orders/add/`, order, config); //backend-base-views-
+    const { data } = await axios.post(`http://54.160.196.198:8000/api/orders/add/`, order, config); //backend-base-views-
     dispatch({
       type: ORDER_CREATE_SUCCESS,
       payload: data,
@@ -81,7 +81,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`/api/orders/${id}/`, config);
+    const { data } = await axios.get(`http://54.160.196.198:8000/api/orders/${id}/`, config);
 
     dispatch({
       type: ORDER_DETAILS_SUCCESS,
@@ -116,7 +116,7 @@ export const payOrder = (id, paymentResult) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/orders/${id}/pay/`,
+      `http://54.160.196.198:8000/api/orders/${id}/pay/`,
       paymentResult,
       config
     );
@@ -154,7 +154,7 @@ export const payOrder2 = (id, payload) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/orders/${id}/pay2/`,
+      `http://54.160.196.198:8000/api/orders/${id}/pay2/`,
       payload,
       config
     );
@@ -191,7 +191,7 @@ export const listMyOrders = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`/api/orders/myorders/`, config);
+    const { data } = await axios.get(`http://54.160.196.198:8000/api/orders/myorders/`, config);
 
     dispatch({
       type: ORDER_LIST_MY_SUCCESS,
@@ -225,7 +225,7 @@ export const listOrders = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`/api/orders/`, config);
+    const { data } = await axios.get(`http://54.160.196.198:8000/api/orders/`, config);
 
     dispatch({
       type: ORDER_LIST_SUCCESS,
@@ -260,7 +260,7 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/orders/${order._id}/deliver/`,
+      `http://54.160.196.198:8000/api/orders/${order._id}/deliver/`,
       {},
       config
     );
