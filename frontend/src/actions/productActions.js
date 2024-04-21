@@ -43,7 +43,7 @@ export const listProducts =
   async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_LIST_REQUEST });
-      const { data } = await axios.get(`/api/products${keyword}`);
+      const { data } = await axios.get(`http://54.160.196.198:8000/api/products${keyword}`);
 
       dispatch({
         type: PRODUCT_LIST_SUCCESS,
@@ -63,7 +63,7 @@ export const listProducts =
 export const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
-    const { data } = await axios.get(`/api/products/${id}`);
+    const { data } = await axios.get(`http://54.160.196.198:8000/api/products/${id}`);
 
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
@@ -97,7 +97,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`/api/products/delete/${id}/`, config);
+    const { data } = await axios.delete(`http://54.160.196.198:8000/api/products/delete/${id}/`, config);
 
     dispatch({
       type: PRODUCT_DELETE_SUCCESS,
@@ -130,7 +130,7 @@ export const createProduct = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`/api/products/create/`, {}, config);
+    const { data } = await axios.post(`http://54.160.196.198:8000/api/products/create/`, {}, config);
 
     dispatch({
       type: PRODUCT_CREATE_SUCCESS,
@@ -166,7 +166,7 @@ export const verifyPaymentProduct =
       // };
 
       const { data } = await axios.post(
-        `/api/products/${id}/verifyPayment/`,
+        `http://54.160.196.198:8000/api/products/${id}/verifyPayment/`,
         payload
       );
 
@@ -203,7 +203,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `/api/products/update/${product._id}/`,
+      `http://54.160.196.198:8000/api/products/update/${product._id}/`,
       product,
       config
     );
@@ -245,7 +245,7 @@ export const createProductReview =
       };
 
       const { data } = await axios.post(
-        `/api/products/${productId}/reviews/`,
+        `http://54.160.196.198:8000/api/products/${productId}/reviews/`,
         review,
         config
       );
@@ -267,7 +267,7 @@ export const createProductReview =
 export const listTopProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_TOP_REQUEST });
-    const { data } = await axios.get(`/api/products/top/`);
+    const { data } = await axios.get(`http://54.160.196.198:8000/api/products/top/`);
 
     dispatch({
       type: PRODUCT_TOP_SUCCESS,
@@ -287,7 +287,7 @@ export const listTopProducts = () => async (dispatch) => {
 export const recommendProducts = (pname) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_RECOMMENDATION_REQUEST });
-    const { data } = await axios.post(`/api/products/recommend/`, {
+    const { data } = await axios.post(`http://54.160.196.198:8000/api/products/recommend/`, {
       name: pname,
     });
 
@@ -309,7 +309,7 @@ export const recommendProducts = (pname) => async (dispatch) => {
 export const recommendProducts2 = (pname) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_RECOMMENDATION_REQUEST });
-    const { data } = await axios.post(`/api/products/recommend/`, {
+    const { data } = await axios.post(`http://54.160.196.198:8000/api/products/recommend/`, {
       name: pname,
     });
 
@@ -331,7 +331,7 @@ export const recommendProducts2 = (pname) => async (dispatch) => {
 export const recommendPearsonProducts = (pname) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_PEARSONRECOMMENDATION_REQUEST });
-    const { data } = await axios.post(`/api/products/recommendPearson/`, {
+    const { data } = await axios.post(`http://54.160.196.198:8000/api/products/recommendPearson/`, {
       name: pname,
     });
 
